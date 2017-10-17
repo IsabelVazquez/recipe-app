@@ -32,7 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use OmniAuth with DotEnv to add Facebook login support with Omniauth
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-
+# Use Devise for user authenication
+gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
