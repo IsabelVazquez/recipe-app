@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use OmniAuth with DotEnv to add Facebook login support with Omniauth
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 # Use Devise for user authenication
