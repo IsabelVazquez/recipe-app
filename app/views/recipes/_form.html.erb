@@ -1,0 +1,16 @@
+<%= form_for(recipe) do |f|%>
+<div class="fields_with_errors">
+  <% unless recipe.errors.empty? %>
+    <%= recipe.errors.full_messages %>
+  <% end %>
+</div>
+ <p>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+ </p>
+ <p>
+   <%= f.label :steps %>
+   <%= f.text_area :steps %>
+ </p>
+   <%= f.submit %>
+<% end %>
