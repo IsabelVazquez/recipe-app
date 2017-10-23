@@ -6,4 +6,12 @@
   <li>
     Steps: <%= recipe.steps %>
   </li>
+  <li>
+    Time: <%= recipe.time %> minutes
+  </li>
+  <% recipe.ingredients.each do |ingred| %>
+  <li>
+    <%= ingred.quantity %> <%= ingred.measurement %>- <%= ingred.name %>
+  </li>
+  <% end %>
 </ul>

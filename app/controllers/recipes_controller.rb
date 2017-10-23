@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    # @recipe.ingredients.build(:attribute => "Hello")
   end
 
   def index
@@ -34,11 +35,13 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe.destroy
+    redirect_to root
   end
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :steps)
+      params.require(:recipe).permit(:name, :steps, :time, :ingredients_attributes => [:ingredient_1, :ingredient_2])
     end
 
     def find_id

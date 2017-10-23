@@ -1,4 +1,4 @@
-<%= form_for [@item, @ingredient] do |f| %>
+<%= form_for [@recipe, @ingredient] do |f| %>
   <div class="fields_with_errors">
     <% unless @ingredient.errors.empty? %>
       <%= @ingredient.errors.full_messages %>
@@ -7,6 +7,20 @@
 
   <%= f.label :name %><br>
   <%= f.text_area :name %><br>
-  <%= f.hidden_field :item_id, value: @item.id %>
-  <%= f.submit %>
+
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %><br>
+
+   <%= f.label :measurement %><br>
+   <%= select_tag(:measurement, options_for_select([
+     ['bushel', 1], ['cup', 2], ['dash', 3], ['fl. oz.', 4],
+     ['gallon', 5], ['gram', 6], ['items', 7], ['L', 8],
+     ['lb.', 9], ['ml', 10], ['ounce', 11], ['pinch', 12],
+     ['pint', 13], ['quart', 14], ['tbsp', 15], ['tsp', 16]
+   ]), include_blank: true) %><br>
+
+    <%= f.hidden_field :recipe_id, value: @recipe.id %>
+    <%= f.hidden_field :user_id, value: @recipe.user_id %>
+
+    <%= f.submit %>
 <% end %>
