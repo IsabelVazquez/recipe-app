@@ -1,0 +1,12 @@
+<%= form_for [@item, @ingredient] do |f| %>
+  <div class="fields_with_errors">
+    <% unless @ingredient.errors.empty? %>
+      <%= @ingredient.errors.full_messages %>
+    <% end %>
+  </div>
+
+  <%= f.label :name %><br>
+  <%= f.text_area :name %><br>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.submit %>
+<% end %>

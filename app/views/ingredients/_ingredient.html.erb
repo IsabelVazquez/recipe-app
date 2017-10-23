@@ -1,0 +1,11 @@
+<div class="fields_with_errors">
+  <% unless @ingredient.errors.empty? %>
+    <%= @ingredient.errors.full_messages %>
+  <% end %>
+</div>
+
+<ul>
+  <li>
+    <%= @ingredient.name %>
+  </li>
+</ul>
