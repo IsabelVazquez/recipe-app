@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   # prevents "Recipe does not have ingredient"
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
+  has_many :items, through: :ingredients
   accepts_nested_attributes_for :ingredients,
     reject_if: proc { |attributes| attributes['name'].blank? },
     allow_destroy: true

@@ -1,0 +1,7 @@
+<div class="fields_with_errors">
+  <% unless @item.errors.empty? %>
+    <%= @item.errors.full_messages %>
+  <% end %>
+</div>
+
+<h2><%= @item.name %></h2>

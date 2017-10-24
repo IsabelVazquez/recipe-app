@@ -12,7 +12,7 @@
   <%= f.text_field :quantity %><br>
 
    <%= f.label :measurement %><br>
-   <%= select_tag(:measurement, options_for_select([
+   <%= select_tag('ingredient[measurement]', options_for_select([
      ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
      ['gallon'], ['gram'], ['items'], ['L'],
      ['lb.'], ['ml'], ['ounce'], ['pinch'],

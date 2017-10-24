@@ -5,13 +5,13 @@
   <%= f.label :quantity %><br>
   <%= f.text_field :quantity %><br>
 
-   <%= f.label :measurement %><br>
-   <%= select_tag(:measurement, options_for_select([
+   <!-- <%= f.label :measurement %><br>
+   <%= select_tag('recipe[ingredients_attributes][][measurement]', options_for_select([
      ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
      ['gallon'], ['gram'], ['items'], ['L'],
      ['lb.'], ['ml'], ['ounce'], ['pinch'],
      ['pint'], ['quart'], ['tbsp'], ['tsp']
-   ]), include_blank: true) %><br>
+   ]), include_blank: true) %><br> -->
 
    <%= f.hidden_field :user_id, value: current_user.id %>
 
