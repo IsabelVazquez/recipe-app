@@ -8,13 +8,18 @@
   <%= f.label :name %><br>
   <%= f.text_area :name %><br>
 
-  <%= f.hidden_field :recipe_id, value: @recipe.id %>
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %><br>
 
-  <!-- <%= f.label :ingredients %>
-  <%= f.fields_for :ingredients do |builder| %>
-    <%= render 'ingredient_fields', f: builder %>
-    <%= link_to_add_association "Add Ingredient", f, :ingredients %><br/>
-  <% end %> -->
+   <%= f.label :measurement %><br>
+   <%= select_tag('item[measurement]', options_for_select([
+     ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
+     ['gallon'], ['gram'], ['items'], ['L'],
+     ['lb.'], ['ml'], ['ounce'], ['pinch'],
+     ['pint'], ['quart'], ['tbsp'], ['tsp']
+   ]), include_blank: true) %><br>
+
+  <%= f.hidden_field :recipe_id, value: @recipe.id %>
 
   <%= f.submit %>
 <% end %>

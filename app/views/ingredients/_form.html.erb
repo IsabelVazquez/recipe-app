@@ -22,4 +22,10 @@
     <%= f.hidden_field :item_id, value: @item.id %>
 
     <%= f.submit %>
+
+    <!-- <%= f.label :ingredients %>
+    <%= f.fields_for :ingredients do |builder| %>
+      <%= render 'ingredient_fields', f: builder %>
+      <%= link_to_add_association "Add Ingredient", f, :ingredients %><br/>
+    <% end %> -->
 <% end %>
