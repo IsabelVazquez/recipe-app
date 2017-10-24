@@ -1,0 +1,14 @@
+<fieldset>
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %><br>
+
+   <%= f.label :measurement %><br>
+   <%= select_tag('item[ingredients_attributes][][measurement]', options_for_select([
+     ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
+     ['gallon'], ['gram'], ['items'], ['L'],
+     ['lb.'], ['ml'], ['ounce'], ['pinch'],
+     ['pint'], ['quart'], ['tbsp'], ['tsp']
+   ]), include_blank: true) %><br>
+
+
+</fieldset>

@@ -2,46 +2,46 @@ class IngredientsController < ApplicationController
   before_action :find_id, :except => [:new, :create, :index, :show]
 
   def new
-    @recipe = Recipe.find_by(id: params[:recipe_id])
+    @item = Item.find_by(id: params[:item_id])
     @ingredient = Ingredient.new
   end
 
   def index
-    @recipe = Recipe.find_by(id: params[:recipe_id])
-    if @recipe.nil?
-      redirect_to recipes_path
+    @item = Item.find_by(id: params[:item_id])
+    if @item.nil?
+      redirect_to items_path
     else
-      @ingredients = @recipe.ingredients
+      @ingredients = @item.ingredients
     end
   end
 
   def create
-    @recipe = Recipe.find_by(id: params[:recipe_id])
+    @item = Item.find_by(id: params[:item_id])
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      redirect_to @recipe
+      redirect_to @item
     else
       render :new
     end
   end
 
   def show #TBD
-    @recipe = Recipe.find_by(id: params[:recipe_id])
-    @ingredient = @recipe.ingredients.find_by(id: params[:id])
+    @item = Item.find_by(id: params[:item_id])
+    @ingredient = @item.ingredients.find_by(id: params[:id])
     if @ingredient.nil?
-      redirect_to @recipe
+      redirect_to @item
     end
   end
 
   def edit
-    @recipe = Recipe.find_by(id: params[:recipe_id])
+    @item = Item.find_by(id: params[:item_id])
   end
 
   def update
-    @recipe = Recipe.find_by(id: params[:recipe_id])
+    @item = Item.find_by(id: params[:item_id])
     @ingredient.update(ingredient_params)
     if @ingredient.save
-      redirect_to @recipe
+      redirect_to @item
     else
       render :edit
     end
@@ -53,7 +53,7 @@ class IngredientsController < ApplicationController
 
   private
     def ingredient_params
-      params.require(:ingredient).permit(:name, :user_id, :quantity, :measurement, :recipe_id)
+      params.require(:ingredient).permit(:name, :item_id, :quantity, :measurement, :recipe_id)
     end
 
     def find_id

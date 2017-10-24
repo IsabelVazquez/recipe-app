@@ -1,8 +1,7 @@
 class Ingredient < ApplicationRecord
-  # prevents Ingredient does not have recipe
-  belongs_to :recipe, inverse_of: :ingredients
-  belongs_to :item
-  belongs_to :user
+  # prevents Ingredient does not have item
+  belongs_to :item, inverse_of: :ingredients
+  belongs_to :recipe
 
   # validates :recipe_id, uniqueness: true | To Be Uncommented
   validates :quantity, numericality: { greater_than: 0 }

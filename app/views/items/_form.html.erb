@@ -8,5 +8,11 @@
   <%= f.label :name %><br>
   <%= f.text_area :name %><br>
 
+  <%= f.label :ingredients %>
+  <%= f.fields_for :ingredients do |builder| %>
+    <%= render 'ingredient_fields', f: builder %>
+    <%= link_to_add_association "Add Ingredient", f, :ingredients %><br/>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
