@@ -9,9 +9,10 @@
   <li>
     Time: <%= recipe.time %> minutes
   </li>
-  <% recipe.ingredients.each do |ingred| %>
+  <% recipe.items.each do |item| %>
   <li>
-    <%= ingred.quantity %> <%= ingred.measurement %>- <%= ingred.name %>
+    <%= item.name %>
   </li>
   <% end %>
+  <%= link_to "Add Items", new_recipe_item_path(recipe) %>
 </ul>

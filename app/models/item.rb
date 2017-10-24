@@ -1,10 +1,12 @@
 class Item < ApplicationRecord
   # prevents "Item does not have ingredient"
   has_many :ingredients, inverse_of: :item, dependent: :destroy
+
   accepts_nested_attributes_for :ingredients,
     reject_if: proc { |attributes| attributes['name'].blank? },
     allow_destroy: true
-  has_many :recipes, through: :ingredients
+
+  belongs_to :recipe
 
   validates :name, presence: true
 

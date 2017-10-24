@@ -27,7 +27,6 @@ class RecipesController < ApplicationController
   end
 
   def update
-    # raise params.inspect
     if @recipe.update_attributes(recipe_params)
       redirect_to recipe_path(@recipe)
     else

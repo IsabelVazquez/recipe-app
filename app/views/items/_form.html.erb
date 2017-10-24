@@ -1,4 +1,4 @@
-<%= form_for (@item) do |f| %>
+<%= form_for [@recipe, @item] do |f| %>
   <div class="fields_with_errors">
     <% unless @item.errors.empty? %>
       <%= @item.errors.full_messages %>
@@ -8,11 +8,13 @@
   <%= f.label :name %><br>
   <%= f.text_area :name %><br>
 
-  <%= f.label :ingredients %>
+  <%= f.hidden_field :recipe_id, value: @recipe.id %>
+
+  <!-- <%= f.label :ingredients %>
   <%= f.fields_for :ingredients do |builder| %>
     <%= render 'ingredient_fields', f: builder %>
     <%= link_to_add_association "Add Ingredient", f, :ingredients %><br/>
-  <% end %>
+  <% end %> -->
 
   <%= f.submit %>
 <% end %>

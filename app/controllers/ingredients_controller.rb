@@ -39,8 +39,7 @@ class IngredientsController < ApplicationController
 
   def update
     @item = Item.find_by(id: params[:item_id])
-    @ingredient.update(ingredient_params)
-    if @ingredient.save
+    if @ingredient.update(ingredient_params)
       redirect_to @item
     else
       render :edit
