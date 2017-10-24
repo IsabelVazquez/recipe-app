@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   #   allow_destroy: true
 
   #has_many :ingredients
-  has_many :recipes #, through: :ingredients
+  belongs_to :recipe #, through: :ingredients
 
   validates :name, presence: true
   validates :quantity, numericality: { greater_than: 0 }

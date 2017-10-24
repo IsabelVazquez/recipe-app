@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     # required for fields_for to work
-    @recipe.ingredients.build
+    # @recipe.ingredients.build
   end
 
   def index
