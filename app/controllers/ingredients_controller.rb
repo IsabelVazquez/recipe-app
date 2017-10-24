@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
   def index
     @recipe = Recipe.find_by(id: params[:recipe_id])
     if @recipe.nil?
-      redirect_to recipes_path 
+      redirect_to recipes_path
     else
       @ingredients = @recipe.ingredients
     end
@@ -25,7 +25,7 @@ class IngredientsController < ApplicationController
     end
   end
 
-  def show
+  def show #TBD
     @recipe = Recipe.find_by(id: params[:recipe_id])
     @ingredient = @recipe.ingredients.find_by(id: params[:id])
     if @ingredient.nil?

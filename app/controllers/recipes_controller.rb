@@ -3,7 +3,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    # @recipe.ingredients.build(:attribute => "Hello")
+    # required for fields_for to work
+    @recipe.ingredients.build
   end
 
   def index
@@ -26,8 +27,8 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(recipe_params)
-    if @recipe.save
+    # raise params.inspect
+    if @recipe.update_attributes(recipe_params)
       redirect_to recipe_path(@recipe)
     else
       render 'edit'
@@ -41,7 +42,9 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :steps, :time, :ingredients_attributes => [:ingredient_1, :ingredient_2])
+      params.require(:recipe).permit(:name, :steps, :time, :ingredients_attributes => [
+        :id, :name, :quantity, :measurement, :user_id, :_destroy
+      ])
     end
 
     def find_id
