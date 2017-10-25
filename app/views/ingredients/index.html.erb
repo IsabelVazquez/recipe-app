@@ -1,9 +1,0 @@
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li><%= ingredient.quantity %> <%= ingredient.measurement %> -
-      <%= ingredient.item.name %><%= ingredient.id %>
-    </li>
-  <% end %>
-</ul>
-
-<!-- <li>link_to ingredient.quantity, item_ingredient(ingredient.item_id, ingredient.id) </li> -->
