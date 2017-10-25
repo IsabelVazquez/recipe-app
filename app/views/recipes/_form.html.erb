@@ -1,9 +1,5 @@
 <%= form_for(recipe) do |f|%>
-  <div class="fields_with_errors">
-    <% unless recipe.errors.empty? %>
-    <%= recipe.errors.full_messages %>
-    <% end %>
-  </div>
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: @recipe } %>
 
   <p>
     <%= f.label :name %>
@@ -23,35 +19,14 @@
   <p>
     <%= f.label :cuisine %>
     <%= f.fields_for :cuisine do |cuisine_form| %>
-      <%= cuisine_form.label :name %><br>
-      <%= cuisine_form.text_field :name %><br>
-
-      <%= cuisine_form.label :_destroy %>
-      <%= cuisine_form.check_box :_destroy%><br>
+      <%= render 'cuisine_fields', f: cuisine_form %>
     <% end %>
   </p>
 
   <%= f.label :items %>
   <ul>
     <%= f.fields_for :items do |items_form| %>
-      <li>
-        <%= items_form.label :name %><br>
-        <%= items_form.text_area :name %><br>
-
-        <%= items_form.label :quantity %><br>
-        <%= items_form.text_field :quantity %><br>
-
-        <%= items_form.label :measurement %><br>
-        <%= select_tag('item[measurement]', options_for_select([
-           ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
-           ['gallon'], ['gram'], ['items'], ['L'],
-           ['lb.'], ['ml'], ['ounce'], ['pinch'],
-           ['pint'], ['quart'], ['tbsp'], ['tsp']
-        ]), include_blank: true) %><br>
-
-        <%= items_form.label :_destroy %>
-        <%= items_form.check_box :_destroy%><br>
-      </li>
+      <%= render 'items_fields', f: items_form %>
     <% end %>
   </ul>
 

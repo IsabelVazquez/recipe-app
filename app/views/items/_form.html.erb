@@ -1,9 +1,5 @@
-<%= form_for [@recipe, @item] do |f| %>
-  <div class="fields_with_errors">
-    <% unless @item.errors.empty? %>
-      <%= @item.errors.full_messages %>
-    <% end %>
-  </div>
+<%= form_for [@recipe, item] do |f| %>
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: item } %>
 
   <%= f.label :name %><br>
   <%= f.text_area :name %><br>

@@ -1,0 +1,18 @@
+<li>
+  <%= f.label :name %><br>
+  <%= f.text_area :name %><br>
+
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %><br>
+
+  <%= f.label :measurement %><br>
+  <%= select_tag('item[measurement]', options_for_select([
+     ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
+     ['gallon'], ['gram'], ['items'], ['L'],
+     ['lb.'], ['ml'], ['ounce'], ['pinch'],
+     ['pint'], ['quart'], ['tbsp'], ['tsp']
+  ]), include_blank: true) %><br>
+
+  <%= f.label :_destroy %>
+  <%= f.check_box :_destroy%><br>
+</li>
