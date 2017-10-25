@@ -10,9 +10,7 @@ class Recipe < ApplicationRecord
   validates :steps, length: { in: 10..2000 }
   validates :name, :time, :steps, :cuisine, presence: true
 
-  def self.short_time
-    Recipe.all.select{ |recipe| recipe.time <= 30 }
-  end
+  scope :short_time, -> { where("time <= ?", 30) }
 
   def cuisine_attributes=(attributes_hash)
     self.cuisine = Cuisine.find_or_create_by(:name => attributes_hash[:name])

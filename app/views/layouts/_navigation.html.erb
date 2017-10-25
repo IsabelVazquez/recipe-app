@@ -1,6 +1,8 @@
 <nav class="navbar navbar-default">
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+      <li><%= link_to "Homepage", root_path %></li>
+      <li><%= link_to "Quick Recipes", recipes_short_time_path %></li>
       <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
       <li><%= link_to "Sign in", user_session_path %></li>
       <li><%= link_to "Sign up", new_user_registration_path %></li>

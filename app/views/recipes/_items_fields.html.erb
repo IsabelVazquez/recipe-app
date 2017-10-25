@@ -13,6 +13,8 @@
      ['pint'], ['quart'], ['tbsp'], ['tsp']
   ]), include_blank: true) %><br>
 
+<% unless current_page?(action: 'new') %>
   <%= f.label :_destroy %>
   <%= f.check_box :_destroy%><br>
+<% end %>
 </li>

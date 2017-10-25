@@ -12,7 +12,8 @@ Specs:
   Recipes.name
 - [X] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
   Shown through partial 'layouts/form_errors'
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+  Recipe.short_time URL: recipes/short_time
 - [X] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
   Recipe/new writes to Cuisine using a custom attribute writer that creates or finds a Cuisine
 - [X] Include signup (how e.g. Devise)

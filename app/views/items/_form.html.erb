@@ -17,5 +17,9 @@
 
   <%= f.hidden_field :recipe_id, value: @recipe.id %>
 
-  <%= f.submit %>
+  <%= f.submit %><br>
+  
+  <% unless current_page?(action: 'new') %>
+    <%= link_to 'Delete Item', recipe_item_path(@recipe, item), :method => :delete %>
+  <% end %>
 <% end %>

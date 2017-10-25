@@ -1,0 +1,11 @@
+<% recipes.each do |recipe| %>
+  <div class="square">
+    <div class="content">
+      <div class="table">
+        <div class="table-cell">
+          <%= link_to recipe.name, recipe %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

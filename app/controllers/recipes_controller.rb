@@ -1,6 +1,7 @@
+require 'pry'
 class RecipesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_id, :except => [:new, :create, :index]
+  before_action :find_id, :except => [:new, :create, :index, :short_time]
 
   def new
     @recipe = Recipe.new
@@ -36,9 +37,8 @@ class RecipesController < ApplicationController
     end
   end
 
-  def destroy
-    @recipe.destroy
-    redirect_to root
+  def short_time
+    @recipes = Recipe.short_time
   end
 
   private
