@@ -20,6 +20,17 @@
     <%= f.text_field :time %>
   </p>
 
+  <p>
+    <%= f.label :cuisine %>
+    <%= f.fields_for :cuisine do |cuisine_form| %>
+      <%= cuisine_form.label :name %><br>
+      <%= cuisine_form.text_field :name %><br>
+
+      <%= cuisine_form.label :_destroy %>
+      <%= cuisine_form.check_box :_destroy%><br>
+    <% end %>
+  </p>
+
   <%= f.label :items %>
   <ul>
     <%= f.fields_for :items do |items_form| %>
@@ -37,7 +48,7 @@
            ['lb.'], ['ml'], ['ounce'], ['pinch'],
            ['pint'], ['quart'], ['tbsp'], ['tsp']
         ]), include_blank: true) %><br>
-        
+
         <%= items_form.label :_destroy %>
         <%= items_form.check_box :_destroy%><br>
       </li>

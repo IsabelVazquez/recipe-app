@@ -5,7 +5,8 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :items, reject_if: lambda {|attributes| attributes['name'].blank?},
     allow_destroy: true
 
-  # belongs_to :cuisine
+  belongs_to :cuisine
+  accepts_nested_attributes_for :cuisine, allow_destroy: true
 
   validates :name, uniqueness: true
   validates :steps, length: { in: 10..2000 }

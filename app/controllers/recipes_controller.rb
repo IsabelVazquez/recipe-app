@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
     # required for fields_for to work
     # @recipe.items.build
     5.times { @recipe.items.build}
+    @recipe.build_cuisine
   end
 
   def index
@@ -44,7 +45,7 @@ class RecipesController < ApplicationController
   private
     def recipe_params
       params.require(:recipe).permit(:name, :steps, :time, items_attributes: [:id, :name, :quantity,
-        :measurement, :_destroy])
+        :measurement, :_destroy], cuisine_attributes: [:id, :name])
     end
 
     def find_id
