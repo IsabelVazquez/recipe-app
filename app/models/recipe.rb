@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
 
   validates :name, uniqueness: true
   validates :steps, length: { in: 10..2000 }
-  validates :name, :time, :steps, presence: true
+  validates :name, :time, :steps, :cuisine, presence: true
 
   def self.short_time
     Recipe.all.select{ |recipe| recipe.time <= 30 }
