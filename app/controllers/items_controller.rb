@@ -1,13 +1,9 @@
 class ItemsController < ApplicationController
   before_action :find_recipe
-  before_action :find_id, :except => [:new, :create, :index]
+  before_action :find_id, :except => [:new, :create]
 
   def new
     @item = Item.new
-  end
-
-  def index
-    @items = @recipe.items
   end
 
   def create
@@ -17,9 +13,6 @@ class ItemsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
   end
 
   def edit
