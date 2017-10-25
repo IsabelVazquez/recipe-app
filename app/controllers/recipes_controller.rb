@@ -5,7 +5,6 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     # required for fields_for to work
-    # @recipe.items.build
     5.times { @recipe.items.build}
     @recipe.build_cuisine
   end
