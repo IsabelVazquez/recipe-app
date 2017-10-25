@@ -20,5 +20,29 @@
     <%= f.text_field :time %>
   </p>
 
+  <%= f.label :items %>
+  <ul>
+    <%= f.fields_for :items do |items_form| %>
+      <li>
+        <%= items_form.label :name %><br>
+        <%= items_form.text_area :name %><br>
+
+        <%= items_form.label :quantity %><br>
+        <%= items_form.text_field :quantity %><br>
+
+        <%= items_form.label :measurement %><br>
+        <%= select_tag('item[measurement]', options_for_select([
+           ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
+           ['gallon'], ['gram'], ['items'], ['L'],
+           ['lb.'], ['ml'], ['ounce'], ['pinch'],
+           ['pint'], ['quart'], ['tbsp'], ['tsp']
+        ]), include_blank: true) %><br>
+        
+        <%= items_form.label :_destroy %>
+        <%= items_form.check_box :_destroy%><br>
+      </li>
+    <% end %>
+  </ul>
+
   <%= f.submit %>
 <% end %>
