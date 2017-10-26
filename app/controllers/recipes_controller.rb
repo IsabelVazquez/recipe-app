@@ -1,6 +1,5 @@
-require 'pry'
 class RecipesController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :find_id, :except => [:new, :create, :index, :short_time]
 
   def new

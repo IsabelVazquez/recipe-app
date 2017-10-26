@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  load_and_authorize_resource :recipe
+  load_and_authorize_resource :item, :through => :recipe
   before_action :find_recipe
   before_action :find_id, :except => [:new, :create, :index]
 
