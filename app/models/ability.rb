@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     can :read, Recipe
+    can :short_time, Recipe
     can :read, Item
     unless user.nil?
       can :manage, Recipe, user_id: user.id
