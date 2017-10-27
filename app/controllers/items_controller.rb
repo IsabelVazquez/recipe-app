@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    respond_to do |format|
+      format.js { render 'new.js', :layout => false }
+      format.html { render 'new.html', :layout => false }
+    end
   end
 
   def index
