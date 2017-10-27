@@ -5,6 +5,6 @@ $(function() {
       dataType: 'script'
     })
 
-    e.preventDefault();
+    return false;
   })
 })
