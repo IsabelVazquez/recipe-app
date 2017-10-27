@@ -24,5 +24,8 @@
     <%= link_to "Add Item", new_recipe_item_path(recipe) %><br>
     <%= link_to "Edit Recipe", edit_recipe_path(recipe) %><br>
   <% end %>
-  <%= link_to "See Only The Ingredients", recipe_items_path(recipe) %><br>
+  <%= link_to "See Only The Items", recipe_items_path(recipe), :class => "load_items" %><br>
 </ul>
+
+<div class="items">
+</div>

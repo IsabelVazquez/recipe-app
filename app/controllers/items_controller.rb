@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
 
   def index
     @items = @recipe.items
+    respond_to do |format|
+      format.html { render 'index.html', :layout => false }
+      format.js { render 'index.js', :layout => false }
+    end
   end
 
   def create
