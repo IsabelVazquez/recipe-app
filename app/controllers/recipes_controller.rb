@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
+      5.times { @recipe.items.build}
       render 'new'
     end
   end
@@ -33,6 +34,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    5.times { @recipe.items.build}
   end
 
   def update
