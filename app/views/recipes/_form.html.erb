@@ -21,10 +21,6 @@
     <%= f.fields_for :cuisine do |cuisine_form| %>
       <%= render 'cuisine_fields', f: cuisine_form %>
     <% end %>
-
-    <% if current_page?(action: 'edit') && recipe.cuisine_id.nil? %>
-      <input type="text" value="" name="recipe[cuisine_attributes][name]" id="recipe_cuisine_attributes_name">
-    <% end %>
   </p>
 
   <%= f.label :items %>
