@@ -1,3 +1,15 @@
+<% unless current_page?(action: 'short_time') %>
+  <%= form_tag("/recipes", method: "get") do %>
+    Filter by
+    <%= label :recipe, :cuisine %>
+    <%= select_tag "cuisine", options_from_collection_for_select(@cuisines, "id", "name"), include_blank: true %>
+    or
+    <%= label :recipe, :item %>
+    <%= text_field_tag :item %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+<% end %>
+
 <% recipes.each do |recipe| %>
   <div class="square">
     <div class="content">
