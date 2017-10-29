@@ -1,5 +1,5 @@
 <%= form_for(recipe) do |f|%>
-  <%= render partial: 'layouts/form_errors', locals: { form_errors: @recipe } %>
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: recipe } %>
 
   <p>
     <%= f.label :name %>
@@ -8,12 +8,12 @@
 
   <p>
     <%= f.label :steps %>
-    <%= f.text_area :steps %>
+    <%= f.text_area :steps, size: "50x10"%>
   </p>
 
   <p>
     <%= f.label :time %>
-    <%= f.text_field :time %>
+    <%= f.text_field :time %> minutes
   </p>
 
   <p>
@@ -27,7 +27,7 @@
   <ul>
     <%= f.fields_for :items do |items_form| %>
       <%= render 'items_fields', f: items_form %>
-    <% end %>
+    <% end %><br>
   </ul>
 
   <%= f.submit %>

@@ -4,13 +4,13 @@
 
 <ul>
   <li>
-    Steps: <%= recipe.steps %>
+    <%= label :recipe, :steps %> <%= recipe.steps %>
   </li>
   <li>
-    Time: <%= recipe.time %> minutes
+    <%= label :recipe, :time %> <%= recipe.time %> minutes
   </li>
   <li>
-    Cuisine: <%= recipe.cuisine.name if recipe.cuisine %>
+    <%= label :recipe, :cuisine %> <%= recipe.cuisine.name if recipe.cuisine %>
   </li>
   <% recipe.items.each do |item| %>
   <li>

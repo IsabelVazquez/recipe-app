@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
 
   validates :name, uniqueness: true
   validates :steps, length: { in: 10..2000 }
-  validates :name, :time, :steps, :cuisine, presence: true
+  validates :name, :time, :steps, presence: true
 
   scope :short_time, -> { where("time <= ?", 30) }
 

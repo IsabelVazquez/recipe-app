@@ -1,5 +1,5 @@
-<%= form_for [@recipe, @item] do |f| %>
-  <%= render partial: 'layouts/form_errors', locals: { form_errors: @item } %>
+<%= form_for [@recipe, item] do |f| %>
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: item } %>
 
   <%= f.label :name %><br>
   <%= f.text_area :name %><br>

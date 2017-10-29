@@ -1,17 +1,17 @@
 <li>
-  <%= f.label :name %><br>
-  <%= f.text_area :name %><br>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
 
-  <%= f.label :quantity %><br>
+  <%= f.label :quantity %>
   <%= f.text_field :quantity %><br>
 
-  <%= f.label :measurement %><br>
+  <%= f.label :measurement %>
   <%= select_tag('item[measurement]', options_for_select([
      ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
      ['gallon'], ['gram'], ['items'], ['L'],
      ['lb.'], ['ml'], ['ounce'], ['pinch'],
      ['pint'], ['quart'], ['tbsp'], ['tsp']
-  ]), include_blank: true) %><br>
+  ]), include_blank: true) %><br><br>
 
 <% unless current_page?(action: 'new') %>
   <%= f.label :_destroy %>
