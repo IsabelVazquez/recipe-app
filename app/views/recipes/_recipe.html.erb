@@ -4,6 +4,9 @@
 
 <ul>
   <li>
+    <%= image_tag recipe.avatar.url(:thumb) %>
+  </li>
+  <li>
     <%= label :recipe, :steps %> <%= recipe.steps %>
   </li>
   <li>
@@ -12,6 +15,7 @@
   <li>
     <%= label :recipe, :cuisine %> <%= recipe.cuisine.name if recipe.cuisine %>
   </li>
+
   <% recipe.items.each do |item| %>
   <li>
     <%= "#{item.quantity} #{item.measurement} - #{item.name}" %>

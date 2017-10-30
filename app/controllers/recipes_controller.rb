@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
-      5.times { @recipe.items.build}
+      5.times { @recipe.items.build }
       render 'new'
     end
   end
@@ -51,7 +51,7 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :steps, :time, items_attributes: [:id, :name, :quantity,
+      params.require(:recipe).permit(:avatar, :name, :steps, :time, items_attributes: [:id, :name, :quantity,
         :measurement, :_destroy], cuisine_attributes: [:id, :name])
     end
 

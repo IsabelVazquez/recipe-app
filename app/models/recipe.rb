@@ -11,6 +11,9 @@ class Recipe < ApplicationRecord
 
   scope :short_time, -> { where("time <= ?", 30) }
 
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   def cuisine_attributes=(attributes_hash)
     self.cuisine = Cuisine.find_or_create_by(:name => attributes_hash[:name])
   end

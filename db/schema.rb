@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025023811) do
+ActiveRecord::Schema.define(version: 20171030153346) do
 
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20171025023811) do
     t.datetime "updated_at", null: false
     t.integer "time"
     t.integer "cuisine_id"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
