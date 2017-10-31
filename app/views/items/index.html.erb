@@ -1,5 +1,10 @@
 <ul>
   <% @items.each do |item| %>
-    <li><%= item.name %></li>
+    <li>
+      <%= "#{item.quantity} #{item.measurement} - #{item.name}" %>
+      <% if can? :update, @recipe %>
+        <%= link_to "Edit", edit_recipe_item_path(@recipe, item) %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
