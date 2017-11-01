@@ -5,7 +5,7 @@ $(function() {
       dataType: 'script'
     })
 
-    return false;
+    e.preventDefault();
   })
 })
 
@@ -47,6 +47,12 @@ $(function() {
     $.get("/recipes/" + nextId + ".json", function(data) {
       insertData(data);
     })
+    // change attribute to sift to next recipe
+    $(".js-next").attr("data-id", nextId)
+    // change href of See The Items
+    newVal = $(".load_items").attr("href").replace(currentId, nextId)
+    $(".load_items").attr("href", newVal)
+    $(".load_items").trigger('click'); 
   })
 })
 
