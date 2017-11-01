@@ -75,10 +75,8 @@ $(function() {
     $.get("/recipes/short_time", function (data) {
       data.forEach(function(recipe) {
         let oneRecipe = new Recipe(recipe)
-        console.log(oneRecipe)
         var recipeHTML = oneRecipe.formatLink()
-        console.log(recipeHTML)
-        $(".container").append(recipeHTML)
+        $(".short_recipes").append(recipeHTML)
       })
     });
     e.preventDefault();
