@@ -38,3 +38,10 @@ $(function() {
     e.preventDefault();
   })
 })
+
+//Sift Through Recipes
+$(function() {
+  $('.js-next').on('click', function() {
+    alert("You have hijacked this function!!!");
+  })
+})

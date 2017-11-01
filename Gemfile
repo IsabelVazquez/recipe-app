@@ -39,10 +39,11 @@ gem 'dotenv-rails'
 gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# Use Cocoon's helper method, link_to_add_association, to add a new set of fields
-gem 'cocoon'
 gem 'pry'
+# Use CanCanCan for authorization
 gem 'cancancan', '~> 2.0'
+# Use to serialize Ruby objects into JSON format
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

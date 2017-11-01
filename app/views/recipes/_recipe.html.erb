@@ -14,9 +14,6 @@
   </li>
 
   <% if can? :create, recipe %>
-    <!-- <%= link_to "Add Item", new_recipe_item_path(recipe), :class => "new_items" %><br>
-      <div class="new_items">
-      </div> -->
     <%= link_to "Edit Recipe", edit_recipe_path(recipe) %><br>
   <% end %>
   <%= link_to "See The Items", recipe_items_path(recipe), :class => "load_items" %><br>
@@ -45,3 +42,5 @@
 
   <%= submit_tag "Submit", :data => { disable_with: false } %><br>
 <% end %>
+
+<button class="js-next" data-id="<%= @recipe.id%>">Next Recipe</button><br><br>
