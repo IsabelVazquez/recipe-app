@@ -44,6 +44,8 @@ gem 'pry'
 gem 'cancancan', '~> 2.0'
 # Use to serialize Ruby objects into JSON format
 gem 'active_model_serializers'
+# Use Paperclip to add avatars to Recipe
+gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
