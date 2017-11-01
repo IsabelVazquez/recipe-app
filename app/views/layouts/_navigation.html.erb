@@ -2,8 +2,8 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li><%= link_to "Homepage", root_path %></li>
-      <li><%= link_to "Quick Recipes", recipes_short_time_path %></li>
-      
+      <li class="short_time"><%= link_to "Quick Recipes", recipes_short_time_path %></li>
+
       <% if user_signed_in? %>
         <li><%= link_to "Create Recipe", new_recipe_path %></li>
         <li><%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %></li>

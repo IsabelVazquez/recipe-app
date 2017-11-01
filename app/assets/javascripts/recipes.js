@@ -68,3 +68,32 @@ function insertData(data) {
 	$(".recipeTime").text(data["time"])
 	$(".recipeCuisine").text(data["cuisine"]["name"])
 }
+
+// Render an Index Page
+$(function() {
+  $('.short_time').on('click', function(e) {
+    $.get("/recipes/short_time", function (data) {
+      data.forEach(function(recipe) {
+        let oneRecipe = new Recipe(recipe)
+        console.log(oneRecipe)
+        var recipeHTML = oneRecipe.formatLink()
+        console.log(recipeHTML)
+        $(".container").append(recipeHTML)
+      })
+    });
+    e.preventDefault();
+  })
+})
+
+// JS Model Object
+function Recipe(recipe) {
+  this.id = recipe.id
+  this.name = recipe.name
+  this.steps = recipe.steps
+  this.time = recipe.time
+}
+// Prototype method
+Recipe.prototype.formatLink = function() {
+  let recipeHTML = `<a href="/recipes/${this.id}" data-id=${this.id}>${this.name}</a><br>`
+  return recipeHTML
+}
