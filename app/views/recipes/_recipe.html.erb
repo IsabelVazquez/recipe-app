@@ -1,16 +1,16 @@
-<h1>
+<h1 class="recipeName">
   <%= recipe.name %>
 </h1>
 
 <ul>
   <li>
-    Steps: <%= recipe.steps %>
+    Steps: <bdi class="recipeSteps"><%= recipe.steps %></bdi>
   </li>
   <li>
-    Time: <%= recipe.time %> minutes
+    Time: <bdi class="recipeTime"><%= recipe.time %></bdi> minutes
   </li>
   <li>
-    Cuisine: <%= recipe.cuisine.name if recipe.cuisine %>
+    Cuisine: <bdi class="recipeCuisine"><%= recipe.cuisine.name if recipe.cuisine %></bdi>
   </li>
 
   <% if can? :create, recipe %>

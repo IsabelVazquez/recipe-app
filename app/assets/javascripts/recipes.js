@@ -42,6 +42,17 @@ $(function() {
 //Sift Through Recipes
 $(function() {
   $('.js-next').on('click', function() {
-    alert("You have hijacked this function!!!");
+    currentId = parseInt($(".js-next").attr("data-id"))
+    nextId = currentId + 1;
+    $.get("/recipes/" + nextId + ".json", function(data) {
+      insertData(data);
+    })
   })
 })
+
+function insertData(data) {
+	$(".recipeName").text(data["name"])
+	$(".recipeSteps").text(data["steps"])
+	$(".recipeTime").text(data["time"])
+	$(".recipeCuisine").text(data["cuisine"]["name"])
+}

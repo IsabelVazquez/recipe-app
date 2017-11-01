@@ -11,6 +11,10 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @recipes, :layout => false }
+    end
   end
 
   def create
@@ -23,8 +27,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @items = @recipe.items
-    @item = @recipe.items.build
+    respond_to do |format|
+      @items = @recipe.items
+      @item = @recipe.items.build
+      format.html { render :show }
+      format.json { render json: @recipe }
+	  end
   end
 
   def edit
