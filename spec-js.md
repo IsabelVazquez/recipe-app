@@ -2,9 +2,8 @@
 
 Specs:
 - [X] Use jQuery for implementing new requirements
-- [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
-- RECIPE SHOW PAGE
-- CREATE RECIPE
+- [X] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+Sift through recipes by clicking "Next Recipe"
 - [ ] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 - [X] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 Recipe/Show - Click on "See The Items" and have them loaded

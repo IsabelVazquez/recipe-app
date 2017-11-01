@@ -47,12 +47,18 @@ $(function() {
     $.get("/recipes/" + nextId + ".json", function(data) {
       insertData(data);
     })
+
     // change attribute to sift to next recipe
     $(".js-next").attr("data-id", nextId)
-    // change href of See The Items
+
+    // change href of "See The Items"
     newVal = $(".load_items").attr("href").replace(currentId, nextId)
     $(".load_items").attr("href", newVal)
-    $(".load_items").trigger('click'); 
+    $(".load_items").trigger('click');
+
+    // change action of New Item form
+    newAction = $(".new_item").attr("action").replace(currentId, nextId)
+    $(".new_item").attr("action", newAction)
   })
 })
 
