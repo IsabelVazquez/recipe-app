@@ -10,7 +10,14 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
+    @cuisines = Cuisine.all
+    if !params[:cuisine].blank?
+      @recipes = Recipe.by_cuisine(params[:cuisine])
+    elsif !params[:item].blank?
+      @recipes = Recipe.by_item(params[:item])
+    else
+      @recipes = Recipe.all
+    end
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @recipes, :layout => false }
