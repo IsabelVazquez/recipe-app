@@ -23,6 +23,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @items = @recipe.items
+    @item = @recipe.items.build
   end
 
   def edit

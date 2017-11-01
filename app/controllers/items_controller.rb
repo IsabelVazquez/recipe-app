@@ -21,11 +21,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = @recipe.items.build(item_params)
     if @item.save
-      redirect_to @recipe
+      render 'items/show', :layout => false
     else
-      render 'new'
+      render 'recipes/show'
     end
   end
 

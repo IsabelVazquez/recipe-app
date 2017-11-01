@@ -12,11 +12,11 @@
   <li>
     Cuisine: <%= recipe.cuisine.name if recipe.cuisine %>
   </li>
-  
+
   <% if can? :create, recipe %>
-    <%= link_to "Add Item", new_recipe_item_path(recipe), :class => "new_items" %><br>
+    <!-- <%= link_to "Add Item", new_recipe_item_path(recipe), :class => "new_items" %><br>
       <div class="new_items">
-      </div>
+      </div> -->
     <%= link_to "Edit Recipe", edit_recipe_path(recipe) %><br>
   <% end %>
   <%= link_to "See The Items", recipe_items_path(recipe), :class => "load_items" %><br>
@@ -24,3 +24,24 @@
 
 <div class="items">
 </div>
+
+
+<%= form_for ([recipe, @item]) do |f|  %>
+  <%= render partial: 'layouts/form_errors', locals: { form_errors: @item } %>
+
+  <%= f.label :name %><br>
+  <%= f.text_area :name %><br>
+
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %><br>
+
+   <%= f.label :measurement %><br>
+   <%= select_tag('item[measurement]', options_for_select([
+     ['bushel'], ['cup'], ['dash'], ['fl. oz.'],
+     ['gallon'], ['gram'], ['items'], ['L'],
+     ['lb.'], ['ml'], ['ounce'], ['pinch'],
+     ['pint'], ['quart'], ['tbsp'], ['tsp']
+   ]), include_blank: true) %><br>
+
+  <%= submit_tag "Submit", :data => { disable_with: false } %><br>
+<% end %>
