@@ -17,6 +17,8 @@ class ItemsController < ApplicationController
     @item = @recipe.items.build(item_params)
     if @item.save
       render json: @item
+    else
+      render partial: 'layouts/form_errors', locals: { form_errors: @item }
     end
   end
 

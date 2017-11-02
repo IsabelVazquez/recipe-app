@@ -8,7 +8,7 @@ $(function() {
       })
     });
     // to prevent multiple renderings
-    $("a.load_items").attr("href", "");
+    // $("a.load_items").attr("href", "");
     e.preventDefault();
   })
 })
@@ -30,11 +30,15 @@ Item.prototype.formatItem = function() {
 $(function() {
   $(".new_item").on("submit", function(e){
     $.post(this.action, $(this).serialize(), function(item) {
-      let $ol = $(".items");
+      let $ol = $(".newItem");
       let newItem = new Item(item);
       let itemHTML = newItem.formatItem();
-      $ol.append(item);
-    })
+      $ol.append(itemHTML);
+      // clean fields
+      $("#item_name").val("");
+      $("#item_quantity").val("");
+      $("#item_measurement").val("");
+    });
     // $.ajax({
     //   type: ($("input[name='_method']").val() || this.method),
     //   url: this.action,
