@@ -19,8 +19,8 @@
   <%= link_to "See The Items", recipe_items_path(recipe), :class => "load_items" %><br>
 </ul>
 
-<div class="items">
-</div>
+<ul class="items">
+</ul>
 
 <% if can? :create, recipe %>
   <%= form_for ([recipe, @item]) do |f|  %>

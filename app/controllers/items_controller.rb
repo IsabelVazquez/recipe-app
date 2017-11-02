@@ -14,10 +14,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = @recipe.items
-    respond_to do |format|
-      format.js { render 'index.js', :layout => false }
-      format.html { render 'index.html', :layout => false }
-    end
+    render json: @items
   end
 
   def create
