@@ -6,10 +6,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    respond_to do |format|
-      format.js { render 'new.js', :layout => false }
-      format.html { render 'new.html', :layout => false }
-    end
   end
 
   def index
@@ -20,9 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item = @recipe.items.build(item_params)
     if @item.save
-      render 'items/show', :layout => false
-    else
-      render 'recipes/show'
+      render json: @item
     end
   end
 
@@ -44,9 +38,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :recipe_id, :measurement, :quantity, :ingredients_attributes => [
-        :id, :quantity, :measurement, :_destroy
-      ])
+      params.require(:item).permit(:id, :name, :recipe_id, :measurement, :quantity)
     end
 
     def find_recipe
@@ -54,7 +46,7 @@ class ItemsController < ApplicationController
     end
 
     def find_id
-      @item = Item.find(params[:id])
+      @item = Item.find_by(id: params[:id])
     end
 
 end

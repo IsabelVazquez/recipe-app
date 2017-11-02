@@ -3,7 +3,7 @@ class RecipeSerializer < ActiveModel::Serializer
   belongs_to :cuisine
 
   private
-    # serialize every item associated with a recipe
+    #serialize every item associated with a recipe
     def items
       ItemSerializer.new(object.items).attributes
     end

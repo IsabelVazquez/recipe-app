@@ -24,7 +24,7 @@
 
 <% if can? :create, recipe %>
   <%= form_for ([recipe, @item]) do |f|  %>
-    <%= render partial: 'layouts/form_errors', locals: { form_errors: @item } %>
+    <!-- <%= render partial: 'layouts/form_errors', locals: { form_errors: @item } %> -->
 
     <%= f.label :name %><br>
     <%= f.text_area :name %><br>
@@ -40,7 +40,7 @@
        ['pint'], ['quart'], ['tbsp'], ['tsp']
      ]), include_blank: true) %><br>
 
-    <%= submit_tag "Submit", :data => { disable_with: false } %><br>
+    <%= submit_tag "Submit", :data => { disable_with: false }, :class => "new_item" %><br>
   <% end %>
 <% end %>
 

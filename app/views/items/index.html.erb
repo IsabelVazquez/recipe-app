@@ -1,5 +1,4 @@
 <ul>
-<<<<<<< HEAD
   <% @items.each do |item| %>
     <li>
       <%= "#{item.quantity} #{item.measurement} - #{item.name}" %>
@@ -7,13 +6,12 @@
         <%= link_to "Edit", edit_recipe_item_path(@recipe, item) %>
       <% end %>
     </li>
-=======
+
   <% if @items.empty? %>
     <li>Nothing to see here.</li>
   <% else %>
     <% @items.each do |item| %>
       <li><%= item.name %></li>
     <% end %>
->>>>>>> master
   <% end %>
 </ul>
