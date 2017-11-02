@@ -18,6 +18,10 @@ $(function() {
     // change action of New Item form
     newAction = $(".new_item").attr("action").replace(currentId, nextId)
     $(".new_item").attr("action", newAction)
+
+    // change href of "Edit Recipe"
+    newHref = $(".edit_recipe").attr("href").replace(currentId, nextId)
+    $(".edit_recipe").attr("href", newHref)
   })
 })
 

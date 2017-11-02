@@ -14,7 +14,7 @@
   </li>
 
   <% if can? :create, recipe %>
-    <%= link_to "Edit Recipe", edit_recipe_path(recipe) %><br>
+    <%= link_to "Edit Recipe", edit_recipe_path(recipe), :class => "edit_recipe" %><br>
   <% end %>
   <%= link_to "See The Items", recipe_items_path(recipe), :class => "load_items" %><br>
 </ul>
