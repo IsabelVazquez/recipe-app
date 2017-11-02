@@ -34,16 +34,23 @@ Item.prototype.formatItem = function() {
 $(function() {
   $(".new_item").on("submit", function(e){
     $.post(this.action, $(this).serialize(), function(item) {
-      let $ol = $(".newItem");
-      let newItem = new Item(item);
-      let itemHTML = newItem.formatItem();
-      $ol.append(itemHTML);
+      if (Array.isArray(item)) {
+        let message = "";
+        item.forEach(function(error) {
+          message += `${error}\n`
+        })
+        alert(message);
+      } else {
+        let $ol = $(".newItem");
+        let newItem = new Item(item);
+        let itemHTML = newItem.formatItem();
+        $ol.append(itemHTML);
+      }
       // empty fields
       $("#item_name").val("");
       $("#item_quantity").val("");
       $("#item_measurement").val("");
     });
-
     e.preventDefault();
   })
 })

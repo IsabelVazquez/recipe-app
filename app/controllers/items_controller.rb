@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     if @item.save
       render json: @item
     else
-      render partial: 'layouts/form_errors', locals: { form_errors: @item }
+      render json: @item.errors.full_messages
     end
   end
 
