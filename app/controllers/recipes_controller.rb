@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
 
   def short_time
     @recipes = Recipe.short_time
-    render json: @recipes, :layout => false
+    render json: @recipes
   end
 
   private

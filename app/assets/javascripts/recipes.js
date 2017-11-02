@@ -30,7 +30,8 @@ function insertData(data) {
 
 // Render an Index Page
 $(function() {
-  $('.short_time').on('click', function(e) {
+  $(".short_time").on('click', function(e) {
+    $(".short_time").off("click");
     $.get("/recipes/short_time", function (data) {
       data.forEach(function(recipe) {
         let oneRecipe = new Recipe(recipe)

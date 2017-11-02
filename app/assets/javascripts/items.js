@@ -7,6 +7,8 @@ $(function() {
         $(".items").append(recipeHTML)
       })
     });
+    // to prevent multiple renderings
+    $("a.load_items").attr("href", "");
     e.preventDefault();
   })
 })
