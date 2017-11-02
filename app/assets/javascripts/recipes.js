@@ -4,7 +4,8 @@ $(function() {
     currentId = parseInt($(".js-next").attr("data-id"))
     nextId = currentId + 1;
     $.get("/recipes/" + nextId + ".json", function(data) {
-      insertData(data);
+      let recipe = new Recipe(data);
+      recipe.renderNext()
     })
 
     // change attribute to sift to next recipe
@@ -13,7 +14,7 @@ $(function() {
     // change href of "See The Items"
     newVal = $(".load_items").attr("href").replace(currentId, nextId)
     $(".load_items").attr("href", newVal)
-    $(".load_items").trigger('click');
+    // $(".load_items").trigger('click');
 
     // change action of New Item form
     newAction = $(".new_item").attr("action").replace(currentId, nextId)
@@ -24,13 +25,6 @@ $(function() {
     $(".edit_recipe").attr("href", newHref)
   })
 })
-
-function insertData(data) {
-	$(".recipeName").text(data["name"])
-	$(".recipeSteps").text(data["steps"])
-	$(".recipeTime").text(data["time"])
-	$(".recipeCuisine").text(data["cuisine"]["name"])
-}
 
 // Render an Index Page
 $(function() {
@@ -54,9 +48,17 @@ function Recipe(recipe) {
   this.name = recipe.name
   this.steps = recipe.steps
   this.time = recipe.time
+  this.cuisine = recipe.cuisine.name
 }
-// Prototype method
+// Prototype methods
 Recipe.prototype.formatLink = function() {
   let recipeHTML = `<a href="/recipes/${this.id}" data-id=${this.id}>${this.name}</a><br>`
   return recipeHTML
+}
+
+Recipe.prototype.renderNext = function() {
+	$(".recipeName").text(this.name)
+	$(".recipeSteps").text(this.steps)
+	$(".recipeTime").text(this.time)
+	$(".recipeCuisine").text(this.cuisine)
 }
