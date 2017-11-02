@@ -8,13 +8,16 @@ $(function() {
       recipe.renderNext()
     })
 
+    //empty previous recipe's items, old + new
+    $(".items").html("")
+    $(".newItem").html("")
+
     // change attribute to sift to next recipe
     $(".js-next").attr("data-id", nextId)
 
     // change href of "See The Items"
-    newVal = $(".load_items").attr("href").replace(currentId, nextId)
+    newVal = `${nextId}/items`
     $(".load_items").attr("href", newVal)
-    // $(".load_items").trigger('click');
 
     // change action of New Item form
     newAction = $(".new_item").attr("action").replace(currentId, nextId)

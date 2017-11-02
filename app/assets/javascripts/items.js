@@ -7,8 +7,8 @@ $(function() {
         $(".items").append(itemHTML)
       })
     });
-    // to prevent multiple renderings
-    // $("a.load_items").attr("href", "");
+    //to prevent multiple renderings on recipe show page
+    $("a.load_items").attr("href", "");
     e.preventDefault();
   })
 })
@@ -22,7 +22,11 @@ function Item(item) {
 }
 // Prototype method
 Item.prototype.formatItem = function() {
-  let itemHTML = `<li data-id=${this.id}>${this.quantity} ${this.measurement} - ${this.name}</li>`
+  if (this.measurement == null) {
+    var itemHTML = `<li data-id=${this.id}>${this.quantity} - ${this.name}</li>`
+  } else {
+    itemHTML = `<li data-id=${this.id}>${this.quantity} ${this.measurement} - ${this.name}</li>`
+  }
   return itemHTML
 }
 
@@ -34,23 +38,12 @@ $(function() {
       let newItem = new Item(item);
       let itemHTML = newItem.formatItem();
       $ol.append(itemHTML);
-      // clean fields
+      // empty fields
       $("#item_name").val("");
       $("#item_quantity").val("");
       $("#item_measurement").val("");
     });
-    // $.ajax({
-    //   type: ($("input[name='_method']").val() || this.method),
-    //   url: this.action,
-    //   data: $(this).serialize(),
-    //   success: function(response){
-    //     $("#item_name").val("");
-    //     $("#item_quantity").val("");
-    //     $("#item_measurement").val("");
-    //     var $ol = $("div.items");
-    //     $ol.append(response);
-    //   },
-    // });
+
     e.preventDefault();
   })
 })
