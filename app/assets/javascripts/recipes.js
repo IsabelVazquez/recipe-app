@@ -31,14 +31,15 @@ function insertData(data) {
 // Render an Index Page
 $(function() {
   $(".short_time").on('click', function(e) {
-    $(".short_time").off("click");
-    $.get("/recipes/short_time", function (data) {
+    $.get(this.href, function (data) {
       data.forEach(function(recipe) {
         let oneRecipe = new Recipe(recipe)
         var recipeHTML = oneRecipe.formatLink()
         $(".short_recipes").append(recipeHTML)
       })
     });
+    // to prevent multiple renderings
+    $("a.short_time").attr("href", "");
     e.preventDefault();
   })
 })
