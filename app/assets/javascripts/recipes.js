@@ -15,6 +15,10 @@ $(function() {
     // change attribute to sift to next recipe
     $(".js-next").attr("data-id", nextId)
 
+    // change href of recipeName
+    newName = `/recipes/${nextId}`
+    $(".recipeName").attr("href", newName)
+
     // change href of "See The Items"
     newVal = `${nextId}/items`
     $(".load_items").attr("href", newVal)
