@@ -1,9 +1,9 @@
 $(function() {
   $("a.load_items").on("click", function(e) {
-    $.get(this.href, function (data) {
-      data.forEach(function(item) {
-        let oneItem = new Item(item)
-        var itemHTML = oneItem.formatItem()
+    $.get(this.href, function (items) {
+      items.forEach(function(item) {
+        const oneItem = new Item(item)
+        const itemHTML = oneItem.formatItem()
         $(".items").append(itemHTML)
       })
     });
@@ -13,7 +13,7 @@ $(function() {
   })
 })
 
-// JS Model Object
+// JS Constructor - creates an Item object
 function Item(item) {
   this.id = item.id
   this.name = item.name
@@ -35,15 +35,15 @@ $(function() {
   $(".new_item").on("submit", function(e){
     $.post(this.action, $(this).serialize(), function(item) {
       if (Array.isArray(item)) {
-        let message = "";
+        var message = "";
         item.forEach(function(error) {
           message += `${error}\n`
         })
         alert(message);
       } else {
-        let $ol = $(".newItem");
-        let newItem = new Item(item);
-        let itemHTML = newItem.formatItem();
+        const $ol = $(".newItem");
+        const newItem = new Item(item);
+        const itemHTML = newItem.formatItem();
         $ol.append(itemHTML);
       }
       // empty fields
