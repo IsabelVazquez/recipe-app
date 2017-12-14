@@ -1,25 +1,24 @@
+<!-- Bootstrap hamburger button: https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_collapse&stacked=h -->
 <nav class="navbar navbar-default">
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to "Welcome, #{current_user.email}", root_path %></li>
+          <li><%= link_to "Create Recipe", new_recipe_path %></li>
+          <li><%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %></li>
+        <% end %>
 
-      <% if user_signed_in? %>
-        <li><%= link_to "Welcome, #{current_user.email}", root_path %></li>
-        <li><%= link_to "Create Recipe", new_recipe_path %></li>
-        <li><%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %></li>
-      <% end %>
+        <% unless user_signed_in? %>
+          <li><%= link_to "Homepage", root_path %></li>
+          <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+          <li><%= link_to "Sign in", user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
 
-      <% unless user_signed_in? %>
-        <li><%= link_to "Homepage", root_path %></li>
-        <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
-        <li><%= link_to "Sign in", user_session_path %></li>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <% end %>
-
-      <li><%= link_to "Quick Recipes", recipes_short_time_path, :class => "short_time" %></li>
-
-      <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-      <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-      <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-    </ul>
-  </div>
+        <li><%= link_to "Quick Recipes", recipes_short_time_path, :class => "short_time" %></li>
+      </ul>
+    <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+  </div><!-- /.container-fluid -->
 </nav>
