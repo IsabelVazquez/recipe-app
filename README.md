@@ -18,6 +18,10 @@ export FACEBOOK_SECRET=YOUR_SECRET_KEY
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/IsabelVazquez/recipe-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
+## Heroku
+
+Login with email `tester@tester.com` and password `tester`. At this time, OAuth for Facebook is not available live on Heroku. 
+
 ## License
 
 The project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
